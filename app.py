@@ -109,10 +109,11 @@ st.markdown("""
 # --- Contact Section ---
 st.header("📞 Contact Us")
 st.markdown("""
-**Phone:** +91-9876543210  
+**Phone:** +91-9340681809
 **Email:** support@autofixin.in  
-**Address:** AutoFixin Garage, MP Nagar, Bhopal, M.P.
+**Address:** Shop no.5, Khasra no. 132, near business plaza, near Ci Square, akbarpur, Kolar Rd, Bhopal, Madhya Pradesh 462042.
 
 Follow us on [Instagram](https://instagram.com) | [Facebook](https://facebook.com)
 """)
+
 
