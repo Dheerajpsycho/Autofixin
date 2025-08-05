@@ -1,5 +1,8 @@
 import streamlit as st
 from datetime import date
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 # --- Page Setup ---
 st.set_page_config(page_title="AutoFixin - Car Service & Repair", page_icon="🚗", layout="wide")
@@ -22,8 +25,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- Logo and Title ---
-st.image("C:/Users/missa/OneDrive/Desktop/Autofixxin/Website/Logo.png", width=120)  # Replace with your own logo if needed
-st.markdown("<div class='title-style'> AutoFixin</div>", unsafe_allow_html=True)
+st.image("https://i.imgur.com/vyI2cQf.png", width=120)  # Replace with your own logo if needed
+st.markdown("<div class='title-style'>🚗 AutoFixin</div>", unsafe_allow_html=True)
 st.markdown("<div class='subheader-style'>Your trusted partner for car repair, maintenance, and detailing.</div>", unsafe_allow_html=True)
 
 # --- Services Section ---
@@ -60,6 +63,38 @@ with st.form("booking_form"):
         st.success(f"Thank you, {name}! Your {service_type} appointment for {vehicle_model} on {appointment_date} has been booked.")
         if pickup_required:
             st.info("Our team will contact you shortly to arrange pickup.")
+
+        # --- Send Email ---
+        sender_email = "dheeraj04k09@gmail.com"
+        sender_password = "tlge tbzl euwu nmsh"
+        receiver_email = "your.email@gmail.com"
+
+        subject = f"New Service Appointment - {name}"
+        body = f"""
+Customer Name: {name}
+Phone: {phone}
+Address: {address}
+Vehicle Model: {vehicle_model}
+Service Type: {service_type}
+Appointment Date: {appointment_date}
+Pickup Required: {'Yes' if pickup_required else 'No'}
+Repair Summary: {repair_summary}
+"""
+
+        msg = MIMEMultipart()
+        msg['From'] = sender_email
+        msg['To'] = receiver_email
+        msg['Subject'] = subject
+
+        msg.attach(MIMEText(body, 'plain'))
+
+        try:
+            with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
+                server.login(sender_email, sender_password)
+                server.send_message(msg)
+                st.success("Booking email sent to AutoFixin inbox!")
+        except Exception as e:
+            st.error(f"Failed to send email: {e}")
 
 # --- Terms and Conditions ---
 st.header("📄 Terms and Conditions")
