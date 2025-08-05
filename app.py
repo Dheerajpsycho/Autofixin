@@ -25,7 +25,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- Logo and Title ---
-st.image("https://i.imgur.com/vyI2cQf.png", width=120)  # Replace with your own logo if needed
+#st.image("https://i.imgur.com/vyI2cQf.png", width=120)  # Replace with your own logo if needed
 st.markdown("<div class='title-style'>🚗 AutoFixin</div>", unsafe_allow_html=True)
 st.markdown("<div class='subheader-style'>Your trusted partner for car repair, maintenance, and detailing.</div>", unsafe_allow_html=True)
 
@@ -115,3 +115,4 @@ st.markdown("""
 
 Follow us on [Instagram](https://instagram.com) | [Facebook](https://facebook.com)
 """)
+
