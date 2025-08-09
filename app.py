@@ -113,8 +113,9 @@ st.markdown("""
 **Email:** autofixinautomobiles@gmail.com  
 **Address:** Shop no.5, Khasra no. 132, near business plaza, near Ci Square, akbarpur, Kolar Rd, Bhopal, Madhya Pradesh 462042.
 
-Follow us on [Instagram](https://instagram.com) | [Facebook](https://facebook.com)
+Follow us on [Instagram](https://www.instagram.com/autofixin_automobiles?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==) | [Facebook](https://facebook.com)
 """)
+
 
 
 
