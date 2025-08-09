@@ -32,6 +32,7 @@ st.markdown("<div class='subheader-style'>Your trusted partner for car repair, m
 # --- Services Section ---
 st.header("🌟 Our Services")
 st.markdown("""
+- **One Hour General Car Service is also available**
 - **General Car Servicing**
 - **Engine Diagnostics**
 - **Brake and Clutch Repairs**
@@ -115,6 +116,7 @@ st.markdown("""
 
 Follow us on [Instagram](https://www.instagram.com/autofixin_automobiles?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==) | [Facebook](https://facebook.com)
 """)
+
 
 
 
