@@ -67,7 +67,7 @@ with st.form("booking_form"):
         # --- Send Email ---
         sender_email = "dheeraj04k09@gmail.com"
         sender_password = "tlge tbzl euwu nmsh"
-        receiver_email = "your.email@gmail.com"
+        receiver_email = "autofixinautomobiles@gmail.com"
 
         subject = f"New Service Appointment - {name}"
         body = f"""
@@ -115,5 +115,6 @@ st.markdown("""
 
 Follow us on [Instagram](https://instagram.com) | [Facebook](https://facebook.com)
 """)
+
 
 
