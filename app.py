@@ -24,16 +24,24 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+
 # --- Logo and Title ---
-#st.image("https://i.imgur.com/vyI2cQf.png", width=120)  # Replace with your own logo if needed
-st.markdown("<div class='title-style'>🚗 AutoFixin</div>", unsafe_allow_html=True)
+# Display company logo (first uploaded image)
+st.image("Logo.png", width=200)  
+
+# Display main brand image (second uploaded image instead of car icon)
+st.image("Name.png", width=300)  
+
+# Title and tagline
+#st.markdown("<div class='title-style'>AutoFixin</div>", unsafe_allow_html=True)
 st.markdown("<div class='subheader-style'>Your trusted partner for car repair, maintenance, and detailing.</div>", unsafe_allow_html=True)
+
 
 # --- Services Section ---
 st.header("🌟 Our Services")
 st.markdown("""
-- **One Hour General Car Service is also available**
 - **General Car Servicing**
+- **All German car repair expert**
 - **Engine Diagnostics**
 - **Brake and Clutch Repairs**
 - **AC and Electrical Works**
@@ -49,12 +57,12 @@ with st.form("booking_form"):
     with col1:
         name = st.text_input("Customer Name")
         phone = st.text_input("Contact Number")
-        address = st.text_input("Address")
+        #address = st.text_input("Address")
         vehicle_model = st.text_input("Vehicle Model")
+        service_type = st.selectbox("Service Type", ["General Servicing", "Engine Diagnostics", "Auto Transmission Repair", "Car Wash", "Other"])
 
     with col2:
         repair_summary = st.text_area("Repair Summary")
-        service_type = st.selectbox("Service Type", ["General Servicing", "Engine Diagnostics", "Brake Repair", "Car Wash", "Other"])
         appointment_date = st.date_input("Preferred Date", min_value=date.today())
         pickup_required = st.checkbox("Need Pickup & Drop?")
 
@@ -74,7 +82,6 @@ with st.form("booking_form"):
         body = f"""
 Customer Name: {name}
 Phone: {phone}
-Address: {address}
 Vehicle Model: {vehicle_model}
 Service Type: {service_type}
 Appointment Date: {appointment_date}
@@ -110,15 +117,10 @@ st.markdown("""
 # --- Contact Section ---
 st.header("📞 Contact Us")
 st.markdown("""
-**Phone:** +91-9340681809
-**Email:** autofixinautomobiles@gmail.com  
+**Phone:** +91-9340681809, +91-8602432586 
+**Email:** support@autofixin.in  
 **Address:** Shop no.5, Khasra no. 132, near business plaza, near Ci Square, akbarpur, Kolar Rd, Bhopal, Madhya Pradesh 462042.
 
-Follow us on [Instagram](https://www.instagram.com/autofixin_automobiles?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==) | [Facebook](https://facebook.com)
+Follow us on [Instagram](https://instagram.com) | [Facebook](https://facebook.com)
 """)
-
-
-
-
-
 
