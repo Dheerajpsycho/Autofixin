@@ -25,16 +25,21 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# --- Logo and Title ---
-# Display company logo (first uploaded image)
-st.image("Logo.png", width=200)  
+# --- Logo + Brand Name in one centered row ---
+col1, col2, col3 = st.columns([1, 2, 1])
 
-# Display main brand image (second uploaded image instead of car icon)
-st.image("Name.png", width=300)  
+with col2:
+    c1, c2 = st.columns([1, 3])
+    with c1:
+        st.image("Logo.png", width=150)
+    with c2:
+        st.image("Name.png", width=600)
 
-# Title and tagline
-#st.markdown("<div class='title-style'>AutoFixin</div>", unsafe_allow_html=True)
-st.markdown("<div class='subheader-style'>Your trusted partner for car repair, maintenance, and detailing.</div>", unsafe_allow_html=True)
+# Centered tagline
+st.markdown(
+    "<div style='text-align: center; font-size: 24px; color: #444;'>Your trusted partner for car repair, maintenance, and detailing.</div>",
+    unsafe_allow_html=True
+)
 
 
 # --- Services Section ---
@@ -127,6 +132,7 @@ st.markdown("""
 
 Follow us on [Instagram](https://www.instagram.com/autofixin_automobiles?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==) | [Facebook](https://facebook.com)
 """)
+
 
 
 
