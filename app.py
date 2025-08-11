@@ -44,8 +44,14 @@ st.markdown(
 
 # --- Services Section ---
 st.header("🌟 Our Services")
+# Service 1: General Car Servicing
+col1, col2 = st.columns([1, 1])  # More space for image
+with col1:
+    st.image("img/car_service.png", width=400)  
+with col2:
+    st.markdown("**General Car Service**")
+    
 st.markdown("""
-- **General Car Servicing**
 - **All German car repair expert**
 - **Engine Diagnostics**
 - **Brake and Clutch Repairs**
@@ -132,6 +138,7 @@ st.markdown("""
 
 Follow us on [Instagram](https://www.instagram.com/autofixin_automobiles?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==) | [Facebook](https://facebook.com)
 """)
+
 
 
 
