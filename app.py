@@ -201,3 +201,63 @@ st.markdown("""
 <div class="footer">© {} AutoFixin. All rights reserved.</div>
 """.format(date.today().year), unsafe_allow_html=True)
 
+# ---------- AI CHATBOT ----------
+import requests
+
+# Custom CSS for floating chat button
+st.markdown("""
+<style>
+#chat-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #e64a19;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 28px;
+  text-align: center;
+  line-height: 60px;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+</style>
+<div id="chat-btn">💬</div>
+""", unsafe_allow_html=True)
+
+# Expander for chat
+with st.expander("💬 Chat with AutoFixin AI", expanded=False):
+    st.caption("Ask anything about car care, German vehicles, or our services.")
+
+    user_input = st.text_area("Your question:", placeholder="e.g. Why is my BMW making a ticking noise?")
+
+    if st.button("Ask AI"):
+        if not user_input.strip():
+            st.warning("Please type a question first 🚗")
+        else:
+            with st.spinner("Thinking... ⚙️"):
+                try:
+                    # Hugging Face Inference API (free-tier LLaMA 2)
+                    API_URL = "https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-chat-hf"
+                    headers = {"Authorization": f"Bearer " + st.secrets.get("HF_TOKEN", "")}
+
+                    payload = {
+                        "inputs": f"Customer question: {user_input}\nAnswer in simple and professional car-care language:"
+                    }
+
+                    response = requests.post(API_URL, headers=headers, json=payload, timeout=60)
+
+                    if response.status_code == 200:
+                        ai_reply = response.json()[0]["generated_text"]
+                        st.success("🤖 AutoFixin AI says:")
+                        st.write(ai_reply)
+                    else:
+                        st.error("⚠️ AI model is busy or unavailable. Please try again later.")
+
+                except Exception as e:
+                    st.error(f"Error: {e}")
+                    st.info("Tip: Add your HuggingFace API key in `.streamlit/secrets.toml` like this:\n\nHF_TOKEN='your_hf_api_key'")
+
+
