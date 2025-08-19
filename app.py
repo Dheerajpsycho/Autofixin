@@ -246,7 +246,7 @@ if st.session_state.chat_open:
         else:
             with st.spinner("Thinking... ⚙️"):
                 try:
-                    API_URL = "https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-chat-hf"
+                    API_URL = "https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill"
                     headers = {"Authorization": f"Bearer " + st.secrets.get("HF_TOKEN", "")}
 
                     payload = {
@@ -265,4 +265,5 @@ if st.session_state.chat_open:
                 except Exception as e:
                     st.error(f"Error: {e}")
                     st.info("Tip: Add your HuggingFace API key in `.streamlit/secrets.toml` like this:\n\nHF_TOKEN='your_hf_api_key'")
+
 
