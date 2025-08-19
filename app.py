@@ -201,45 +201,51 @@ st.markdown("""
 <div class="footer">© {} AutoFixin. All rights reserved.</div>
 """.format(date.today().year), unsafe_allow_html=True)
 
-# ---------- AI CHATBOT ----------
-import requests
+# ---------- AI CHATBOT (Floating Button) ----------
 
-# Custom CSS for floating chat button
+# Initialize chatbot toggle
+if "chat_open" not in st.session_state:
+    st.session_state.chat_open = False
+
+# Custom CSS for floating button
 st.markdown("""
-<style>
-#chat-btn {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background-color: #e64a19;
-  color: white;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  font-size: 28px;
-  text-align: center;
-  line-height: 60px;
-  cursor: pointer;
-  z-index: 9999;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
-</style>
-<div id="chat-btn">💬</div>
+    <style>
+    .floating-btn {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background-color: #e64a19;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        font-size: 28px;
+        text-align: center;
+        line-height: 60px;
+        cursor: pointer;
+        z-index: 9999;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+    </style>
 """, unsafe_allow_html=True)
 
-# Expander for chat
-with st.expander("💬 Chat with AutoFixin AI", expanded=False):
+# Floating button
+if st.button("💬", key="chat_toggle"):
+    st.session_state.chat_open = not st.session_state.chat_open
+
+# Chatbot panel
+if st.session_state.chat_open:
+    st.markdown("### 💬 Chat with AutoFixin AI")
     st.caption("Ask anything about car care, German vehicles, or our services.")
 
     user_input = st.text_area("Your question:", placeholder="e.g. Why is my BMW making a ticking noise?")
 
-    if st.button("Ask AI"):
+    if st.button("Ask AI", key="ask_ai_btn"):
         if not user_input.strip():
             st.warning("Please type a question first 🚗")
         else:
             with st.spinner("Thinking... ⚙️"):
                 try:
-                    # Hugging Face Inference API (free-tier LLaMA 2)
                     API_URL = "https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-chat-hf"
                     headers = {"Authorization": f"Bearer " + st.secrets.get("HF_TOKEN", "")}
 
@@ -259,5 +265,3 @@ with st.expander("💬 Chat with AutoFixin AI", expanded=False):
                 except Exception as e:
                     st.error(f"Error: {e}")
                     st.info("Tip: Add your HuggingFace API key in `.streamlit/secrets.toml` like this:\n\nHF_TOKEN='your_hf_api_key'")
-
-
