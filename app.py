@@ -193,10 +193,11 @@ st.markdown("""
 st.markdown('<div class="section-title">Contact Us</div>', unsafe_allow_html=True)
 st.markdown("""
 **Phone:** +91-9340681809, +91-8602432586  
-**Email:** support@autofixin.in  
+**Email:** autofixinautomobiles@gmail.com  
 **Address:** Shop no.5, Khasra no. 132, near Business Plaza, near CI Square, Akbarpur, Kolar Rd, Bhopal, MP 462042.  
 """)
 
 st.markdown("""
 <div class="footer">© {} AutoFixin. All rights reserved.</div>
 """.format(date.today().year), unsafe_allow_html=True)
+
