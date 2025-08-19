@@ -1,4 +1,4 @@
-
+import requests
 import streamlit as st
 from datetime import date, datetime
 import smtplib
@@ -265,3 +265,4 @@ if st.session_state.chat_open:
                 except Exception as e:
                     st.error(f"Error: {e}")
                     st.info("Tip: Add your HuggingFace API key in `.streamlit/secrets.toml` like this:\n\nHF_TOKEN='your_hf_api_key'")
+
