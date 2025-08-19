@@ -13,7 +13,7 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 html, body, [class*="css"]  { font-family: 'Poppins', sans-serif; }
 .main { background: linear-gradient(180deg, #fff, #f7f7fb 60%, #eef3ff); }
-.block-container { padding-top: 2rem; padding-bottom: 3rem; }
+.block-container { padding-top: 3rem; padding-bottom: 3rem; }
 
 .hero {
   padding: 4.5rem 2rem;
@@ -265,5 +265,6 @@ if st.session_state.chat_open:
                 except Exception as e:
                     st.error(f"Error: {e}")
                     st.info("Tip: Add your HuggingFace API key in `.streamlit/secrets.toml` like this:\n\nHF_TOKEN='your_hf_api_key'")
+
 
 
