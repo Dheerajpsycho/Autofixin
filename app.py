@@ -192,8 +192,8 @@ st.markdown("""
 
 st.markdown('<div class="section-title">Contact Us</div>', unsafe_allow_html=True)
 st.markdown("""
-**Phone:** +91-9340681809, +91-8602432586  
-**Email:** support@autofixin.in  
+**Phone:** +91-9340681809  
+**Email:** autofixinautomobiles@gmail.com  
 **Address:** Shop no.5, Khasra no. 132, near Business Plaza, near CI Square, Akbarpur, Kolar Rd, Bhopal, MP 462042.  
 """)
 
@@ -306,6 +306,7 @@ if st.session_state.chat_open:
                 except Exception as e:
                     st.error(f"Error: {e}")
                     st.info("Tip: Add your HuggingFace API key in `.streamlit/secrets.toml` like this:\n\nHF_TOKEN='your_hf_api_key'")
+
 
 
 
