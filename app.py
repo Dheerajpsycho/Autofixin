@@ -230,9 +230,9 @@ st.markdown("""
 </style>
 
 <div class="social-links">
-  <a href="https://instagram.com/autofixin" target="_blank" class="insta"><i class="fab fa-instagram"></i></a>
-  <a href="https://facebook.com/autofixin" target="_blank" class="fb"><i class="fab fa-facebook-f"></i></a>
-  <a href="https://youtube.com/@autofixin" target="_blank" class="yt"><i class="fab fa-youtube"></i></a>
+  <a href="https://www.instagram.com/autofixin_automobiles?igsh=MXRzMXZoeTk1YmtyNg==" target="_blank" class="insta"><i class="fab fa-instagram"></i></a>
+  <a href="https://www.facebook.com/share/16vQMSxVA7/" target="_blank" class="fb"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://youtube.com/@autofixinautomobiles?si=li86i_8wS_STqDts" target="_blank" class="yt"><i class="fab fa-youtube"></i></a>
 </div>
 """, unsafe_allow_html=True)
 
@@ -306,6 +306,7 @@ if st.session_state.chat_open:
                 except Exception as e:
                     st.error(f"Error: {e}")
                     st.info("Tip: Add your HuggingFace API key in `.streamlit/secrets.toml` like this:\n\nHF_TOKEN='your_hf_api_key'")
+
 
 
 
