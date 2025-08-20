@@ -180,7 +180,7 @@ Timestamp: {datetime.now()}
             st.success("Booking email sent to AutoFixin inbox!")
         else:
             st.caption("Tip: set SMTP_USER, SMTP_PASS & BOOKING_INBOX in Streamlit secrets to enable email alerts.")
-
+          
 # ---------- Terms & Contact ----------
 st.markdown('<div class="section-title">Terms & Conditions</div>', unsafe_allow_html=True)
 st.markdown("""
@@ -193,13 +193,54 @@ st.markdown("""
 st.markdown('<div class="section-title">Contact Us</div>', unsafe_allow_html=True)
 st.markdown("""
 **Phone:** +91-9340681809, +91-8602432586  
-**Email:** autofixinautomobiles@gmail.com  
+**Email:** support@autofixin.in  
 **Address:** Shop no.5, Khasra no. 132, near Business Plaza, near CI Square, Akbarpur, Kolar Rd, Bhopal, MP 462042.  
 """)
 
+# ---------- Social Links ----------
 st.markdown("""
-<div class="footer">© {} AutoFixin. All rights reserved.</div>
-""".format(date.today().year), unsafe_allow_html=True)
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 1.5rem 0;
+}
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.social-links a:hover {
+  transform: scale(1.15);
+  opacity: 0.9;
+}
+.insta { background: #E1306C; }
+.fb { background: #1877F2; }
+.yt { background: #FF0000; }
+</style>
+
+<div class="social-links">
+  <a href="https://instagram.com/autofixin" target="_blank" class="insta"><i class="fab fa-instagram"></i></a>
+  <a href="https://facebook.com/autofixin" target="_blank" class="fb"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://youtube.com/@autofixin" target="_blank" class="yt"><i class="fab fa-youtube"></i></a>
+</div>
+""", unsafe_allow_html=True)
+
+# ---------- Footer ----------
+st.markdown(f"""
+<div class="footer">© {date.today().year} AutoFixin. All rights reserved.</div>
+""", unsafe_allow_html=True)
+
 
 # ---------- AI CHATBOT (Floating Button) ----------
 
@@ -265,6 +306,7 @@ if st.session_state.chat_open:
                 except Exception as e:
                     st.error(f"Error: {e}")
                     st.info("Tip: Add your HuggingFace API key in `.streamlit/secrets.toml` like this:\n\nHF_TOKEN='your_hf_api_key'")
+
 
 
 
