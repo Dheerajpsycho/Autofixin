@@ -181,27 +181,31 @@ Timestamp: {datetime.now()}
         else:
             st.caption("Tip: set SMTP_USER, SMTP_PASS & BOOKING_INBOX in Streamlit secrets to enable email alerts.")
           
-# ---------- Terms & Contact ----------
-st.markdown('<div class="section-title">Terms & Conditions</div>', unsafe_allow_html=True)
-st.markdown("""
-- Parking charges before/after service: ₹200/day.  
-- Responsibilities cease once the vehicle leaves our premises.  
-- Maintenance performed per concerns noted by the customer.  
-- All disputes subject to Bhopal jurisdiction.
-""")
-
-st.markdown('<div class="section-title">Contact Us</div>', unsafe_allow_html=True)
-st.markdown("""
-**Phone:** +91-9340681809  
-**Email:** autofixinautomobiles@gmail.com  
-**Address:** Shop no.5, Khasra no. 132, near Business Plaza, near CI Square, Akbarpur, Kolar Rd, Bhopal, MP 462042.  
-""")
-
-# ---------- Social Links ----------
+# ---------- BMW Section ----------
+img_b64 = get_base64_image("img/merc.png")
 st.markdown("""
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+.bmw-section {
+  background: url('data:image/png;base64,""" + img_b64 + """') no-repeat center center fixed;
+  background-size: cover;
+  filter: brightness(1.1) contrast(1.2) saturate(1.5);
+}
+.bmw-overlay {
+  padding: 20px;
+}
+.bmw-overlay h2 {
+  color: #fff;
+}
+.bmw-overlay ul {
+  color: #fff;
+  list-style-type: disc;
+  padding-left: 20px;
+}
+.bmw-overlay p {
+  color: #fff;
+}
 .social-links {
   display: flex;
   justify-content: center;
@@ -229,10 +233,26 @@ st.markdown("""
 .yt { background: #FF0000; }
 </style>
 
-<div class="social-links">
-  <a href="https://www.instagram.com/autofixin_automobiles?igsh=MXRzMXZoeTk1YmtyNg==" target="_blank" class="insta"><i class="fab fa-instagram"></i></a>
-  <a href="https://www.facebook.com/share/16vQMSxVA7/" target="_blank" class="fb"><i class="fab fa-facebook-f"></i></a>
-  <a href="https://youtube.com/@autofixinautomobiles?si=li86i_8wS_STqDts" target="_blank" class="yt"><i class="fab fa-youtube"></i></a>
+<div class="bmw-section">
+    <div class="bmw-overlay">
+        <h2>Terms & Conditions</h2>
+        <ul>
+            <li>Parking charges before/after service: ₹200/day.</li>
+            <li>Responsibilities cease once the vehicle leaves our premises.</li>
+            <li>Maintenance performed per concerns noted by the customer.</li>
+            <li>All disputes subject to Bhopal jurisdiction.</li>
+        </ul>
+        <h2>Contact Us</h2>
+        <p><b>Phone:</b> +91-9340681809<br>
+           <b>Email:</b> autofixinautomobiles@gmail.com<br>
+           <b>Address:</b> Shop no.5, Khasra no. 132, near Business Plaza, near CI Square, 
+           Akbarpur, Kolar Rd, Bhopal, MP 462042.</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/autofixin_automobiles?igsh=MXRzMXZoeTk1YmtyNg==" target="_blank" class="insta"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/16vQMSxVA7/" target="_blank" class="fb"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://youtube.com/@autofixinautomobiles?si=li86i_8wS_STqDts" target="_blank" class="yt"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -240,7 +260,6 @@ st.markdown("""
 st.markdown(f"""
 <div class="footer">© {date.today().year} AutoFixin. All rights reserved.</div>
 """, unsafe_allow_html=True)
-
 
 # ---------- AI CHATBOT (Floating Button) ----------
 
@@ -306,6 +325,7 @@ if st.session_state.chat_open:
                 except Exception as e:
                     st.error(f"Error: {e}")
                     st.info("Tip: Add your HuggingFace API key in `.streamlit/secrets.toml` like this:\n\nHF_TOKEN='your_hf_api_key'")
+
 
 
 
