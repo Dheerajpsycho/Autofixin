@@ -4,6 +4,15 @@ from datetime import date, datetime
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import base64
+import io
+import PIL
+import os
+
+# ---------- Helper Function ----------
+def get_base64_image(image_path):
+    with open(image_path, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode()
 
 st.set_page_config(page_title="AutoFixin — Premium Car Care", page_icon="Logo.png", layout="wide")
 
@@ -325,6 +334,7 @@ if st.session_state.chat_open:
                 except Exception as e:
                     st.error(f"Error: {e}")
                     st.info("Tip: Add your HuggingFace API key in `.streamlit/secrets.toml` like this:\n\nHF_TOKEN='your_hf_api_key'")
+
 
 
 
